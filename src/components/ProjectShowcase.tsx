@@ -10,19 +10,38 @@ const projects = [
   { title: "MentisAI", description: "Intelligent NLP-driven application focused on mental health support and cognitive assistance using advanced language models.", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800", tags: ["NLP", "LLM", "React", "AI"], github: "https://github.com/Saiprasath-12/MentisAI" },
 ];
 
+const floatingSnippets = [
+  { text: '{ }', className: 'top-12 left-[8%] animate-float-slow text-2xl' },
+  { text: '</>', className: 'top-24 right-[10%] animate-float-medium text-xl' },
+  { text: '=>', className: 'bottom-20 left-[15%] animate-float-slow text-2xl' },
+  { text: '[ ]', className: 'top-[40%] right-[5%] animate-float-medium text-lg' },
+  { text: '( )', className: 'bottom-32 right-[18%] animate-float-slow text-xl' },
+];
+
 const ProjectShowcase = () => {
   const scrollRef = useScrollAnimation();
 
   return (
-    <section id="projects" className="py-24 relative" ref={scrollRef}>
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-24 relative overflow-hidden" ref={scrollRef}>
+      {/* Floating decorative code elements */}
+      {floatingSnippets.map((s, i) => (
+        <span
+          key={i}
+          className={`absolute font-mono font-bold text-primary/10 pointer-events-none select-none ${s.className}`}
+          style={{ animationDelay: `${i * 0.8}s` }}
+        >
+          {s.text}
+        </span>
+      ))}
+
+      <div className="container mx-auto px-6 relative z-10">
         <h2 className="text-4xl font-black text-gradient text-center mb-4 animate-on-scroll">Project Showcase</h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto animate-on-scroll stagger-1">
           Each project represents a unique challenge solved through innovative thinking and cutting-edge technology.
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((p, i) => (
-            <div key={i} className={`animate-on-scroll stagger-${Math.min(i + 1, 5)}`}>
+            <div key={i} className={`animate-on-scroll stagger-${Math.min(i + 1, 8)}`}>
               <ProjectCard project={p} />
             </div>
           ))}

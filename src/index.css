@@ -79,6 +79,9 @@
 .stagger-3 { transition-delay: 0.3s; }
 .stagger-4 { transition-delay: 0.4s; }
 .stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+.stagger-7 { transition-delay: 0.7s; }
+.stagger-8 { transition-delay: 0.8s; }
 
 /* Floating code snippets */
 @keyframes float-slow {
@@ -102,6 +105,10 @@
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-100%) rotate(-45deg); }
+  100% { transform: translateX(200%) rotate(-45deg); }
+}
 
 .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
 .animate-float-medium { animation: float-medium 4s ease-in-out infinite; }
@@ -110,6 +117,33 @@
 .animate-gradient { 
   background-size: 200% 200%;
   animation: gradient-shift 4s ease infinite;
+}
+
+/* Project card shimmer overlay */
+.project-card-shine {
+  position: relative;
+  overflow: hidden;
+}
+.project-card-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(187 92% 50% / 0.06),
+    transparent
+  );
+  transform: translateX(-100%) rotate(-45deg);
+  z-index: 1;
+  pointer-events: none;
+  transition: none;
+}
+.project-card-shine:hover::before {
+  animation: shimmer-sweep 0.8s ease-out forwards;
 }
 
 /* 3D tilt card */
@@ -121,7 +155,7 @@
   transition: transform 0.1s ease-out, box-shadow 0.3s ease;
 }
 .tilt-card:hover {
-  box-shadow: 0 25px 50px hsl(187 92% 50% / 0.15), 0 0 0 1px hsl(187 92% 50% / 0.3);
+  box-shadow: 0 25px 50px hsl(187 92% 50% / 0.15), 0 0 0 1px hsl(187 92% 50% / 0.3), 0 0 30px hsl(187 92% 50% / 0.1);
 }
 
 /* Profile ring animation */

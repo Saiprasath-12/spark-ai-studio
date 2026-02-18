@@ -54,11 +54,22 @@ const ProjectCard = ({ project }: { project: Project }) => {
           ref={cardRef}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          className="tilt-card relative h-[480px] glass rounded-3xl overflow-hidden group cursor-default"
+          className="tilt-card project-card-shine relative h-[500px] glass rounded-3xl overflow-hidden group cursor-default"
         >
-          <img src={project.image} alt={project.title} className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-500 group-hover:scale-105" style={{ transformStyle: 'preserve-3d' }} />
+          {/* Background image */}
+          <img
+            src={project.image}
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all duration-700"
+            style={{ transformOrigin: 'center center' }}
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
-          <div className="relative h-full flex flex-col justify-end p-6 space-y-3" style={{ transform: 'translateZ(30px)' }}>
+
+          {/* Content — slides up on hover */}
+          <div
+            className="relative h-full flex flex-col justify-end p-6 space-y-3 transition-transform duration-500 group-hover:-translate-y-2"
+            style={{ transform: 'translateZ(50px)' }}
+          >
             <div className="flex flex-wrap gap-2">
               {project.tags.map((t) => (
                 <span key={t} className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary rounded-full border border-primary/20">
