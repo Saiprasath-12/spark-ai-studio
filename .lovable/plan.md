@@ -1,77 +1,104 @@
 
 
-# Saiprasath M — Developer Portfolio (Updated)
+# Upgrade: Professional Skills Icons + Enhanced Project Showcase Animations
 
-A modern, animated portfolio website with an AI-powered chatbot, showcasing projects, skills, and achievements — featuring the uploaded profile photo, enhanced animations, and rich footer.
+## 1. Technical Core -- Professional Lucide Icons (Replace Emojis)
 
-## 1. Hero Section
-- Full-screen landing with animated gradient background and floating code snippets
-- **Profile photo displayed in a glowing circular frame** with animated border ring and subtle pulse/glow effect (using the uploaded image)
-- Name, title ("Full-Stack & AI Systems"), and tagline with staggered fade-in animations
-- CTA buttons: "View Showcase" and "Let's Connect" with hover glow effects
-- Social links (GitHub, LinkedIn, Email) with scale-on-hover
+Replace all emoji icons in the Skills section with proper Lucide React icons for a professional look. Each skill gets a relevant icon rendered as a React component with cyan accent color.
 
-## 2. Navigation (Enhanced Animations)
-- **Desktop**: Floating glass-morphism pill navbar with active indicator that slides/morphs between items
-- Hover effects with underline animation and subtle scale
-- **Mobile**: Hamburger with animated icon transition (Menu ↔ X), slide-in overlay with staggered item entrance
-- Scroll-based show/hide with smooth translate animation
+### Updated Skill Icons Mapping
 
-## 3. About Section
-- Bio paragraph with fade-in on scroll
-- Animated stat cards (20+ Projects, 7+ Hackathons, 8.5 CGPA, 2 Special Mentions) with count-up animation on scroll
-- Core Philosophy list with staggered slide-in
-- Skill badges with hover scale effect
+| Skill | Current | New (Lucide) |
+|-------|---------|-------------|
+| Java | coffee emoji | `Code` |
+| Python | snake emoji | `Terminal` |
+| C | letters emoji | `Cpu` |
+| TypeScript | "TS" text | `FileCode` (from lucide) |
+| Gemini | sparkles emoji | `Sparkles` |
+| DeepSeek | whale emoji | `Search` |
+| Claude AI | mask emoji | `Brain` |
+| Nanobana | banana emoji | `Bot` |
+| Flow | wave emoji | `Workflow` |
+| Antigravity | satellite emoji | `Rocket` |
+| React | atom emoji | `Atom` (lucide) |
+| Flask | test tube emoji | `FlaskConical` |
+| Tailwind CSS | paint emoji | `Paintbrush` |
+| HTML5 | globe emoji | `Globe` |
+| CSS3 | paint emoji | `Palette` |
+| MySQL | dolphin emoji | `Database` |
+| Firebase | fire emoji | `Flame` |
+| MongoDB | leaf emoji | `Leaf` |
+| Vercel | triangle | `Triangle` |
+| Git | branch emoji | `GitBranch` |
+| GitHub | octopus emoji | `Github` |
+| Docker | whale emoji | `Container` |
 
-## 4. Skills Section
-- Filterable category tabs with animated active indicator
-- Skill cards grid with staggered entrance animation
-- Each card has hover glow and scale effect
-- Smooth layout animation when switching tabs
+### Additional Skills to Add
+- **Supabase** (Database) -- `Cloud` icon
+- **Node.js** (Full Stack) -- `Server` icon
+- **Postman** (DevOps & Tools) -- `Send` icon
+- **VS Code** (DevOps & Tools) -- `Code2` icon
 
-## 5. Project Showcase (3D Tilt Cards)
-- 6 project cards with **CSS 3D perspective tilt effect** — cards rotate based on mouse position using CSS transforms (no framer-motion needed)
-- Gradient overlay with parallax shift on hover
-- Each card shows tags, description, GitHub link, and "AI Analysis" button
-- AI Analysis uses Lovable Cloud edge function to generate architectural review
-- Cards have glowing border on hover
+### Card Styling Enhancement
+- Each skill card icon rendered at 28px in `text-primary` (cyan) color
+- Add a subtle icon container with `bg-primary/10 rounded-xl p-2` behind each icon
+- Keep the hover glow and scale effect
 
-## 6. Milestones Section
-- Animated milestone cards with staggered fade-in on scroll
-- Hackathons, OCI Certified, NPTEL Expert, CGPA, Special Mentions
-- Subtle hover lift effects
+---
 
-## 7. Blog Section
-- Hashnode blog link card with hover animation and external link icon
+## 2. Project Showcase -- Enhanced Animations (Reference Site Style)
 
-## 8. Contact Section
-- Contact info cards with icon animations on hover
-- Social media links (GitHub, Instagram, LinkedIn) with glow effects
+The reference site's project cards feature:
+- Large image preview area at the top of each card
+- Smooth hover: image scales up, overlay darkens, content slides up
+- Glowing border effect on hover
+- Tags with subtle pill styling
+- Staggered entrance animations
 
-## 9. AI Chatbot (SaiBot)
-- Floating button with pulsing glow animation
-- Expandable chat window with message animations
-- Powered by Lovable Cloud edge function (Gemini model)
-- Personality: energetic, tech emojis, max 2 sentences
+### Changes to `ProjectCard.tsx`
 
-## 10. Footer (Enhanced)
-- Large "S" logo with glow effect
-- Tagline: "Engineered for Scalable Innovation"
-- **Quick navigation links** to all sections (Home, About, Skills, Showcase, Milestones, Connect)
-- **Social media links row** (GitHub, Instagram, LinkedIn, Email)
-- **Tech stack badges** — "Built with React • TypeScript • Tailwind"
-- **"Back to top" button** with smooth scroll
-- Copyright © 2025 SAIPRASATH M
-- Subtle animated gradient divider at top of footer
+**Enhanced 3D tilt + hover animations:**
+- Increase card height slightly to `h-[500px]`
+- Background image starts at `opacity-40`, on hover scales to `1.1` and shifts to `opacity-50`
+- Add a **glowing animated border** on hover using `box-shadow` with cyan gradient
+- Content area (tags, title, description, buttons) slides up slightly on hover with a `translateY` transition
+- Add a **shine/shimmer overlay** effect that sweeps across the card on hover (CSS `::before` pseudo-element via a wrapper class)
+- Smooth `transition-all duration-500` on all animated properties
 
-## Design & Animations
-- Dark theme with cyan/blue accents
-- CSS-based animations (keyframes + Tailwind utilities) — no framer-motion dependency
-- 3D card tilt via CSS `perspective` and `transform` with mouse-tracking JS
-- Intersection Observer for scroll-triggered animations (fade-in, slide-up, stagger)
-- Glassmorphism (backdrop-blur) on nav and chat
-- Responsive for mobile and desktop
+**Enhanced 3D tilt:**
+- Increase tilt sensitivity slightly (current `x * 20` is good, keep it)
+- Add `translateZ(50px)` on the content layer for more depth parallax
+- Add subtle shadow that shifts with the tilt direction
 
-## Backend
-- Lovable Cloud edge function for AI chatbot proxy to Gemini API with system prompt containing portfolio context
+### Changes to `ProjectShowcase.tsx`
+
+- Add floating decorative elements in the background (code brackets `{ }`, `</>`, `=>`) that float with CSS animations, matching the reference site's style
+- Extend stagger delays up to `stagger-6` for all 6 cards
+
+### New CSS Animations in `index.css`
+
+```text
+@keyframes shimmer-sweep
+  - A diagonal shine that moves across the card on hover
+  - From left-to-right, 0.6s duration
+
+@keyframes card-float
+  - Subtle up/down floating on idle cards (optional, very gentle)
+
+.project-card-shine::before
+  - Pseudo-element that creates the shimmer overlay
+  - Triggered on hover via .group-hover
+```
+
+---
+
+## 3. Files Modified
+
+1. **`src/components/Skills.tsx`** -- Replace emoji icons with Lucide components, add 4 new skills, update card styling with icon containers
+2. **`src/components/ProjectCard.tsx`** -- Enhanced hover animations (image scale, content slide-up, glowing border, shimmer effect), improved 3D tilt depth
+3. **`src/components/ProjectShowcase.tsx`** -- Add floating decorative code elements in background, extend stagger classes
+4. **`src/index.css`** -- Add `shimmer-sweep` keyframe, `.project-card-shine` class, extend stagger classes to `stagger-6` through `stagger-8`
+
+## No New Dependencies
+All enhancements use Lucide React (already installed) and CSS animations.
 
