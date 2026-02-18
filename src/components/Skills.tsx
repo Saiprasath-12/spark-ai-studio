@@ -69,15 +69,15 @@ const Skills = () => {
             return (
               <div
                 key={skill.name}
-                className="glass rounded-2xl p-5 text-center hover:scale-110 hover:glow-cyan-sm transition-all duration-300 cursor-default group"
-                style={{ animationDelay: `${i * 50}ms` }}
+                className="skill-card glass rounded-2xl p-5 text-center hover:scale-110 hover:glow-cyan-sm transition-all duration-300 cursor-default group animate-on-scroll"
+                style={{ animationDelay: `${i * 60}ms`, transitionDelay: `${i * 60}ms` }}
               >
                 <div className="flex justify-center mb-3">
-                  <div className="bg-primary/10 rounded-xl p-2 group-hover:bg-primary/20 transition-colors duration-300">
-                    <IconComp size={28} className="text-primary" />
+                  <div className="bg-primary/10 rounded-xl p-2 group-hover:bg-primary/20 group-hover:animate-pulse-glow transition-colors duration-300">
+                    <IconComp size={28} className="text-primary group-hover:drop-shadow-[0_0_8px_hsl(187_92%_50%/0.6)] transition-all duration-300" />
                   </div>
                 </div>
-                <div className="text-sm font-semibold text-foreground">{skill.name}</div>
+                <div className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300">{skill.name}</div>
               </div>
             );
           })}

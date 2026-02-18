@@ -166,3 +166,17 @@
 .profile-ring {
   animation: ring-rotate 6s linear infinite;
 }
+
+/* Skill card entrance */
+.skill-card {
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease, background 0.3s ease;
+}
+.skill-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.skill-card:hover {
+  transform: translateY(-6px) scale(1.1);
+}
