@@ -1,3 +1,5 @@
+import ConstellationBackground from '@/components/ConstellationBackground';
+import BinaryRain from '@/components/BinaryRain';
 import FloatingNav from '@/components/FloatingNav';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -10,7 +12,9 @@ import Footer from '@/components/Footer';
 import SaiBot from '@/components/SaiBot';
 
 const Index = () => (
-  <div className="min-h-screen bg-background text-foreground">
+  <div className="min-h-screen bg-background text-foreground relative">
+    <ConstellationBackground />
+    <BinaryRain />
     <FloatingNav />
     <Hero />
     <About />
