@@ -1,30 +1,42 @@
 import { useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import {
+  Code, Terminal, Cpu, FileCode, Sparkles, Search, Brain, Bot,
+  Workflow, Rocket, Atom, FlaskConical, Paintbrush, Globe, Palette,
+  Database, Flame, Leaf, Triangle, GitBranch, Github, Container,
+  Cloud, Server, Send, Code2,
+} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 const categories = ['All', 'Languages', 'AI Ecosystem', 'Full Stack', 'Database', 'DevOps & Tools'];
-const allSkills = [
-  { name: 'Java', cat: 'Languages', icon: '☕' },
-  { name: 'Python', cat: 'Languages', icon: '🐍' },
-  { name: 'C', cat: 'Languages', icon: '🔤' },
-  { name: 'TypeScript', cat: 'Languages', icon: 'TS' },
-  { name: 'Gemini', cat: 'AI Ecosystem', icon: '✨' },
-  { name: 'DeepSeek', cat: 'AI Ecosystem', icon: '🐋' },
-  { name: 'Claude AI', cat: 'AI Ecosystem', icon: '🎭' },
-  { name: 'Nanobana', cat: 'AI Ecosystem', icon: '🍌' },
-  { name: 'Flow', cat: 'AI Ecosystem', icon: '🌊' },
-  { name: 'Antigravity', cat: 'AI Ecosystem', icon: '🛰️' },
-  { name: 'React', cat: 'Full Stack', icon: '⚛️' },
-  { name: 'Flask', cat: 'Full Stack', icon: '🧪' },
-  { name: 'Tailwind CSS', cat: 'Full Stack', icon: '🎨' },
-  { name: 'HTML5', cat: 'Full Stack', icon: '🌐' },
-  { name: 'CSS3', cat: 'Full Stack', icon: '🎨' },
-  { name: 'MySQL', cat: 'Database', icon: '🐬' },
-  { name: 'Firebase', cat: 'Database', icon: '🔥' },
-  { name: 'MongoDB', cat: 'Database', icon: '🍃' },
-  { name: 'Vercel', cat: 'DevOps & Tools', icon: '▲' },
-  { name: 'Git', cat: 'DevOps & Tools', icon: '🌿' },
-  { name: 'GitHub', cat: 'DevOps & Tools', icon: '🐙' },
-  { name: 'Docker', cat: 'DevOps & Tools', icon: '🐳' },
+
+const allSkills: { name: string; cat: string; Icon: LucideIcon }[] = [
+  { name: 'Java', cat: 'Languages', Icon: Code },
+  { name: 'Python', cat: 'Languages', Icon: Terminal },
+  { name: 'C', cat: 'Languages', Icon: Cpu },
+  { name: 'TypeScript', cat: 'Languages', Icon: FileCode },
+  { name: 'Gemini', cat: 'AI Ecosystem', Icon: Sparkles },
+  { name: 'DeepSeek', cat: 'AI Ecosystem', Icon: Search },
+  { name: 'Claude AI', cat: 'AI Ecosystem', Icon: Brain },
+  { name: 'Nanobana', cat: 'AI Ecosystem', Icon: Bot },
+  { name: 'Flow', cat: 'AI Ecosystem', Icon: Workflow },
+  { name: 'Antigravity', cat: 'AI Ecosystem', Icon: Rocket },
+  { name: 'React', cat: 'Full Stack', Icon: Atom },
+  { name: 'Flask', cat: 'Full Stack', Icon: FlaskConical },
+  { name: 'Tailwind CSS', cat: 'Full Stack', Icon: Paintbrush },
+  { name: 'HTML5', cat: 'Full Stack', Icon: Globe },
+  { name: 'CSS3', cat: 'Full Stack', Icon: Palette },
+  { name: 'Node.js', cat: 'Full Stack', Icon: Server },
+  { name: 'MySQL', cat: 'Database', Icon: Database },
+  { name: 'Firebase', cat: 'Database', Icon: Flame },
+  { name: 'MongoDB', cat: 'Database', Icon: Leaf },
+  { name: 'Supabase', cat: 'Database', Icon: Cloud },
+  { name: 'Vercel', cat: 'DevOps & Tools', Icon: Triangle },
+  { name: 'Git', cat: 'DevOps & Tools', Icon: GitBranch },
+  { name: 'GitHub', cat: 'DevOps & Tools', Icon: Github },
+  { name: 'Docker', cat: 'DevOps & Tools', Icon: Container },
+  { name: 'Postman', cat: 'DevOps & Tools', Icon: Send },
+  { name: 'VS Code', cat: 'DevOps & Tools', Icon: Code2 },
 ];
 
 const Skills = () => {
@@ -52,16 +64,23 @@ const Skills = () => {
           ))}
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          {filtered.map((skill, i) => (
-            <div
-              key={skill.name}
-              className="glass rounded-2xl p-5 text-center hover:scale-110 hover:glow-cyan-sm transition-all duration-300 cursor-default"
-              style={{ animationDelay: `${i * 50}ms` }}
-            >
-              <div className="text-3xl mb-2">{skill.icon}</div>
-              <div className="text-sm font-semibold text-foreground">{skill.name}</div>
-            </div>
-          ))}
+          {filtered.map((skill, i) => {
+            const IconComp = skill.Icon;
+            return (
+              <div
+                key={skill.name}
+                className="glass rounded-2xl p-5 text-center hover:scale-110 hover:glow-cyan-sm transition-all duration-300 cursor-default group"
+                style={{ animationDelay: `${i * 50}ms` }}
+              >
+                <div className="flex justify-center mb-3">
+                  <div className="bg-primary/10 rounded-xl p-2 group-hover:bg-primary/20 transition-colors duration-300">
+                    <IconComp size={28} className="text-primary" />
+                  </div>
+                </div>
+                <div className="text-sm font-semibold text-foreground">{skill.name}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
