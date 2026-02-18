@@ -60,9 +60,19 @@
   .glass {
     @apply bg-background/60 backdrop-blur-xl border border-border/50;
   }
+  .story-link span {
+    @apply relative inline-block;
+  }
+  .story-link span::after {
+    content: '';
+    @apply absolute w-full scale-x-0 h-0.5 bottom-0 left-0 bg-primary origin-bottom-right transition-transform duration-300;
+  }
+  .story-link:hover span::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
 }
 
-/* Scroll-triggered animations */
+/* ========== Scroll-triggered animations ========== */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
@@ -83,7 +93,51 @@
 .stagger-7 { transition-delay: 0.7s; }
 .stagger-8 { transition-delay: 0.8s; }
 
-/* Floating code snippets */
+/* ========== Hero entrance animations ========== */
+.hero-badge-enter {
+  animation: hero-slide-up 0.8s ease-out 0.2s both;
+}
+.hero-title-enter {
+  animation: hero-slide-up 0.8s ease-out 0.4s both;
+}
+.hero-subtitle-enter {
+  animation: hero-slide-up 0.8s ease-out 0.6s both;
+}
+.hero-desc-enter {
+  animation: hero-slide-up 0.8s ease-out 0.8s both;
+}
+.hero-buttons-enter {
+  animation: hero-slide-up 0.8s ease-out 1.0s both;
+}
+.hero-socials-enter {
+  animation: hero-slide-up 0.8s ease-out 1.2s both;
+}
+.hero-photo-enter {
+  animation: hero-scale-in 1s ease-out 0.6s both;
+}
+
+@keyframes hero-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes hero-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========== Floating animations ========== */
 @keyframes float-slow {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-20px) rotate(2deg); }
@@ -109,6 +163,16 @@
   0% { transform: translateX(-100%) rotate(-45deg); }
   100% { transform: translateX(200%) rotate(-45deg); }
 }
+@keyframes binary-fall {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
 .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
 .animate-float-medium { animation: float-medium 4s ease-in-out infinite; }
@@ -118,8 +182,10 @@
   background-size: 200% 200%;
   animation: gradient-shift 4s ease infinite;
 }
+.animate-binary-fall { animation: binary-fall 15s linear infinite; }
+.animate-blink { animation: blink 1s step-end infinite; }
 
-/* Project card shimmer overlay */
+/* ========== Project card shimmer overlay ========== */
 .project-card-shine {
   position: relative;
   overflow: hidden;
@@ -146,7 +212,7 @@
   animation: shimmer-sweep 0.8s ease-out forwards;
 }
 
-/* 3D tilt card */
+/* ========== 3D tilt card ========== */
 .perspective-container {
   perspective: 1000px;
 }
@@ -158,16 +224,23 @@
   box-shadow: 0 25px 50px hsl(187 92% 50% / 0.15), 0 0 0 1px hsl(187 92% 50% / 0.3), 0 0 30px hsl(187 92% 50% / 0.1);
 }
 
-/* Profile ring animation */
+/* ========== Profile ring animations ========== */
 @keyframes ring-rotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+@keyframes ring-rotate-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
 .profile-ring {
   animation: ring-rotate 6s linear infinite;
 }
+.profile-ring-reverse {
+  animation: ring-rotate-reverse 8s linear infinite;
+}
 
-/* Skill card entrance */
+/* ========== Skill card entrance ========== */
 .skill-card {
   opacity: 0;
   transform: translateY(30px) scale(0.9);
@@ -179,4 +252,13 @@
 }
 .skill-card:hover {
   transform: translateY(-6px) scale(1.1);
+}
+
+/* ========== Connect card glow ========== */
+.connect-card-glow {
+  position: relative;
+  transition: box-shadow 0.4s ease;
+}
+.connect-card-glow:hover {
+  box-shadow: 0 0 20px hsl(187 92% 50% / 0.15), 0 0 0 1px hsl(187 92% 50% / 0.2);
 }
