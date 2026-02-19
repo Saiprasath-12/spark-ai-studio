@@ -1,3 +1,4 @@
+import { useRef, useEffect, useState } from 'react';
 import ProjectCard from './ProjectCard';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -20,9 +21,31 @@ const floatingSnippets = [
 
 const ProjectShowcase = () => {
   const scrollRef = useScrollAnimation();
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [cardsVisible, setCardsVisible] = useState(false);
+
+  // Intersection observer for wave entrance
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCardsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden" ref={scrollRef}>
+    <section id="projects" className="py-24 relative overflow-hidden" ref={(el: HTMLDivElement | null) => {
+      if (el) {
+        (scrollRef as React.MutableRefObject<HTMLElement | null>).current = el;
+        sectionRef.current = el;
+      }
+    }}>
       {/* Floating decorative code elements */}
       {floatingSnippets.map((s, i) => (
         <span
@@ -34,6 +57,10 @@ const ProjectShowcase = () => {
         </span>
       ))}
 
+      {/* Animated gradient orbs */}
+      <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary/5 rounded-full blur-[120px] animate-float-slow pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-[100px] animate-float-medium pointer-events-none" />
+
       <div className="container mx-auto px-6 relative z-10">
         <h2 className="text-4xl font-black text-gradient text-center mb-4 animate-on-scroll">Project Showcase</h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto animate-on-scroll stagger-1">
@@ -41,7 +68,15 @@ const ProjectShowcase = () => {
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((p, i) => (
-            <div key={i} className={`animate-on-scroll stagger-${Math.min(i + 1, 8)}`}>
+            <div
+              key={i}
+              className="showcase-card-enter"
+              style={{
+                opacity: cardsVisible ? 1 : 0,
+                transform: cardsVisible ? 'translateY(0) scale(1) rotateX(0deg)' : 'translateY(60px) scale(0.9) rotateX(8deg)',
+                transition: `all 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.12}s`,
+              }}
+            >
               <ProjectCard project={p} />
             </div>
           ))}
