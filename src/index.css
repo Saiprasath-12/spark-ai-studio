@@ -240,18 +240,86 @@
   animation: ring-rotate-reverse 8s linear infinite;
 }
 
-/* ========== Skill card entrance ========== */
-.skill-card {
-  opacity: 0;
-  transform: translateY(30px) scale(0.9);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease, background 0.3s ease;
+/* ========== Skill card 3D system ========== */
+.skill-card-perspective {
+  perspective: 800px;
 }
-.skill-card.visible {
+.skill-card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 1px solid transparent;
+}
+.skill-card-3d:hover {
+  border-color: var(--brand-color);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--brand-color) 30%, transparent),
+              0 0 40px color-mix(in srgb, var(--brand-color) 10%, transparent);
+}
+
+/* Entrance states */
+.skill-card-hidden {
+  opacity: 0;
+  transform: translateY(28px) scale(0.92);
+}
+.skill-card-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
-.skill-card:hover {
-  transform: translateY(-6px) scale(1.1);
+
+/* Bottom bar sweep */
+.skill-card-bar {
+  position: relative;
+  overflow: hidden;
+}
+.skill-card-bar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--brand-color);
+  border-radius: 2px;
+  transition: width 0.4s ease-out;
+  box-shadow: 0 0 8px var(--brand-color);
+}
+.skill-card-bar:hover::after {
+  width: 70%;
+}
+
+/* Cursor spotlight */
+.skill-card-spotlight {
+  position: relative;
+}
+.skill-card-spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle 120px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    color-mix(in srgb, var(--brand-color) 15%, transparent),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 1;
+}
+.skill-card-spotlight:hover::before {
+  opacity: 1;
+}
+
+/* Orbiting ring */
+.skill-orbit-ring {
+  animation: ring-rotate 3s linear infinite;
+}
+
+/* Magnetic pill */
+.magnetic-pill {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 0.3s, color 0.3s, box-shadow 0.3s;
+  will-change: transform;
 }
 
 /* ========== Connect card glow ========== */
