@@ -10,6 +10,7 @@ import Blog from '@/components/Blog';
 import Connect from '@/components/Connect';
 import Footer from '@/components/Footer';
 import SaiBot from '@/components/SaiBot';
+import LiveViewCounter from '@/components/LiveViewCounter';
 
 const Index = () => (
   <div className="min-h-screen bg-background text-foreground relative">
@@ -24,6 +25,7 @@ const Index = () => (
     <Blog />
     <Connect />
     <SaiBot />
+    <LiveViewCounter />
     <Footer />
   </div>
 );
