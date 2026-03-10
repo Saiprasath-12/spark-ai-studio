@@ -330,3 +330,15 @@
 .connect-card-glow:hover {
   box-shadow: 0 0 20px hsl(187 92% 50% / 0.15), 0 0 0 1px hsl(187 92% 50% / 0.2);
 }
+
+/* ========== Welcome screen marquee ========== */
+@keyframes welcome-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.welcome-marquee {
+  animation: welcome-marquee 18s linear infinite;
+}
+.welcome-initials-enter {
+  animation: hero-scale-in 0.8s ease-out 0.3s both;
+}
