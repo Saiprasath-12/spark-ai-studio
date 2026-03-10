@@ -1,4 +1,4 @@
-import { Github, Instagram, Linkedin, Mail, ArrowUp, Heart } from 'lucide-react';
+import { Github, Instagram, Linkedin, Mail, ArrowUp } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', id: 'home' },
@@ -90,8 +90,8 @@ const Footer = () => {
           <p className="text-xs text-muted-foreground/50">
             © {new Date().getFullYear()} SAIPRASATH M. All rights reserved.
           </p>
-          <p className="text-xs text-muted-foreground/40 flex items-center gap-1">
-            Built with <Heart size={10} className="text-destructive" /> using React • TypeScript • Tailwind
+          <p className="text-xs text-muted-foreground/40">
+            Built with React • TypeScript • Tailwind
           </p>
           <button
             onClick={scrollToTop}
