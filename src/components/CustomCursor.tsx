@@ -56,13 +56,13 @@ const CustomCursor = () => {
     <>
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-[6px] h-[6px] rounded-full bg-foreground z-[9998] pointer-events-none mix-blend-difference"
-        style={{ willChange: 'transform' }}
+        className="fixed top-0 left-0 w-[8px] h-[8px] rounded-full bg-white z-[9998] pointer-events-none"
+        style={{ willChange: 'transform', boxShadow: '0 0 10px rgba(255,255,255,0.6), 0 0 20px rgba(255,255,255,0.3)' }}
       />
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 w-10 h-10 rounded-full border border-foreground/50 z-[9998] pointer-events-none mix-blend-difference transition-[width,height] duration-200"
-        style={{ willChange: 'transform' }}
+        className="fixed top-0 left-0 w-10 h-10 rounded-full border border-white/40 z-[9998] pointer-events-none transition-[width,height] duration-200"
+        style={{ willChange: 'transform', boxShadow: '0 0 15px rgba(255,255,255,0.15)' }}
       />
     </>
   );
