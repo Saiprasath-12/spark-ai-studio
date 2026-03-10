@@ -17,7 +17,7 @@ const WelcomeScreen = ({ onComplete }: WelcomeScreenProps) => {
 
   useEffect(() => {
     startTime.current = performance.now();
-    const duration = 2500;
+    const duration = 4000;
 
     const tick = (now: number) => {
       const elapsed = now - startTime.current;
