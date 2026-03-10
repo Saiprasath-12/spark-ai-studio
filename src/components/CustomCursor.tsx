@@ -63,7 +63,6 @@ const CustomCursor = () => {
         ref={ringRef}
         className="fixed top-0 left-0 w-10 h-10 rounded-full border border-white/40 z-[9998] pointer-events-none transition-[width,height] duration-200"
         style={{ willChange: 'transform', boxShadow: '0 0 15px rgba(255,255,255,0.15)' }}
-        style={{ willChange: 'transform' }}
       />
     </>
   );
