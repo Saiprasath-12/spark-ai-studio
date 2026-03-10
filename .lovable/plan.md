@@ -1,112 +1,75 @@
 
-# Super Animations for Technical Core Section
 
-## Overview
-A complete overhaul of the Skills/Technical Core section adding per-brand color theming, 3D mouse-tracking tilt on each card, cursor spotlight effect, animated bottom bar sweep, magnetic filter pills, wave/ripple entrance, and smooth fade transitions on category switch.
+# Welcome Screen + Hero Overhaul (Rajesh Portfolio Style)
 
----
+## What We're Building
 
-## 1. Per-Brand Color Theming
+Recreating the raxx21/rajesh-portfolio welcome and hero experience using pure CSS + React (no GSAP/ThreeJS). The key elements:
 
-Each skill gets a unique brand color string (e.g., Python = `#3776ab`, React = `#61dafb`, Docker = `#2496ed`). On hover:
-- Card border glows in the brand color
-- Icon gets a drop-shadow in the brand color
-- Skill name text transitions to the brand color
-- A bottom bar (pseudo-element) sweeps from 0% to 70% width in the brand color
-
-## 2. 3D Mouse-Tracking Tilt Per Card
-
-Same approach as `ProjectCard.tsx` -- each skill card gets:
-- `perspective: 800px` on the wrapper
-- `onMouseMove` calculates X/Y offset from card center
-- Applies `rotateY(x * 15deg) rotateX(-y * 15deg)` live
-- `onMouseLeave` resets to flat with a smooth transition
-- Content layer gets `translateZ(30px)` for parallax depth
-
-## 3. Cursor Spotlight Effect
-
-- Track mouse position relative to each card
-- Apply a radial gradient overlay using CSS custom properties (`--mouse-x`, `--mouse-y`)
-- Creates a soft light circle (brand color at 15% opacity) that follows the cursor inside the card
-- Implemented via inline style updates on `onMouseMove`
-
-## 4. Animated Bottom Bar Sweep
-
-- Each card gets a `::after` pseudo-element (via a wrapper div with a CSS class)
-- Default: `width: 0`, positioned at the bottom center
-- On hover: `width: 70%`, `background: brand-color`, transition 0.4s ease-out
-- Creates a glowing underline sweep effect
-
-## 5. Magnetic Filter Pills
-
-- Filter buttons get `onMouseMove` tracking
-- When cursor is near (within ~40px), the button subtly shifts toward the cursor using `translate`
-- On `onMouseLeave`, it springs back with a cubic-bezier transition
-- Active pill: white background, dark text, glow shadow
-
-## 6. Wave/Ripple Entrance on Scroll
-
-- Cards enter with `translateY(28px) scale(0.92) opacity(0)` and stagger at 30ms intervals
-- On category switch, cards fade out (opacity 0, scale 0.95) for 200ms, then the new set fades in with stagger
-- Implemented via a `filterKey` state that triggers a re-render with animation reset
-
-## 7. Orbiting Ring on Hovered Card
-
-- On hover, a thin ring (2px border, brand color) appears around the icon container
-- The ring rotates using `animation: ring-rotate 3s linear infinite`
-- Created via a pseudo-element or an extra `div` with `absolute` positioning and `rounded-full`
+1. **Welcome/Loading Screen** -- Full-screen preloader with animated progress bar, marquee-style scrolling text, and a dramatic reveal transition that slides away to expose the hero
+2. **Landing/Hero Redesign** -- Large-format typography hero with the name split dramatically across lines, animated role text that flips/slides between titles, and a cinematic entrance sequence
+3. **Custom Cursor** -- Smooth-following cursor dot with a larger trailing ring, scaling on interactive elements
 
 ---
 
-## Technical Implementation
+## Technical Plan
 
-### Files Modified
+### 1. New Component: `WelcomeScreen.tsx`
 
-**`src/components/Skills.tsx`** -- Major rewrite:
-- Add `brandColor` field to each skill data object
-- Add `useRef` + mouse tracking for 3D tilt per card (using a `SkillCard` sub-component)
-- Add spotlight gradient via `--mouse-x` / `--mouse-y` CSS variables
-- Add magnetic effect on filter buttons via mouse tracking
-- Add `animating` state for fade-out/fade-in on category switch
-- Wrap icon in orbiting ring container
+A full-screen overlay that shows on initial load:
+- Dark background with initials "SM" in the center
+- Animated progress bar (0% to 100% over ~2.5s using requestAnimationFrame)
+- Marquee-style scrolling text bands (diagonal) with repeated phrases like "FULL STACK", "AI ENGINEER", "DEVELOPER" in large faded text
+- Once loaded, a "curtain reveal" -- the screen splits vertically or slides up with a CSS transition, revealing the hero beneath
+- Component unmounts after animation completes (~3.5s total)
 
-**`src/index.css`** -- New CSS classes:
-- `.skill-card-bar::after` -- bottom bar sweep pseudo-element using `var(--brand-color)`
-- `.skill-card-spotlight` -- radial gradient overlay using `var(--mouse-x, 50%)` and `var(--mouse-y, 50%)`
-- `.skill-orbit-ring` -- rotating ring animation around icon
-- `.skill-card-enter` / `.skill-card-exit` -- fade transition classes for category switching
-- `.magnetic-pill` -- base class for magnetic filter buttons
+### 2. Redesigned `Hero.tsx`
 
-### Brand Colors Map
+Inspired by the Landing.tsx layout:
+- Left side: massive stacked typography
+  - Small intro line: "Hello! I'm" (faded in)
+  - Giant name: "SAIPRASATH" on one line, "M" on the next (gradient + white)
+  - Below: "A Full-Stack" in muted text, then role words ("Developer" / "Engineer") that slide/flip vertically in a clipping container
+- Right side: profile photo with the existing rotating rings (kept from current)
+- Description text and CTA buttons below the name block
+- Social icons row
+- Staggered entrance animations timed to start after welcome screen exits
+- Floating code terminal kept but repositioned
 
-| Skill | Color |
-|-------|-------|
-| Java | #f89820 |
-| Python | #3776ab |
-| C | #a8b9cc |
-| TypeScript | #3178c6 |
-| Gemini | #8b5cf6 |
-| DeepSeek | #0ea5e9 |
-| Claude AI | #d97706 |
-| Nanobana | #f59e0b |
-| Flow | #06b6d4 |
-| Antigravity | #ef4444 |
-| React | #61dafb |
-| Flask | #22c55e |
-| Tailwind CSS | #38bdf8 |
-| HTML5 | #e34f26 |
-| CSS3 | #264de4 |
-| Node.js | #68a063 |
-| MySQL | #00758f |
-| Firebase | #ffca28 |
-| MongoDB | #47a248 |
-| Supabase | #3ecf8e |
-| Vercel | #ffffff |
-| Git | #f05032 |
-| GitHub | #c9d1d9 |
-| Docker | #2496ed |
-| Postman | #ff6c37 |
-| VS Code | #007acc |
+### 3. New Component: `CustomCursor.tsx`
+
+- Small dot (6px) that follows mouse position exactly
+- Larger ring (40px) that follows with lerp/easing delay (using requestAnimationFrame)
+- Ring scales up on hover over interactive elements (links, buttons)
+- Ring shrinks/hides on text inputs
+- Hidden on mobile/touch devices
+- Uses CSS `mix-blend-mode: difference` for contrast
+
+### 4. CSS Additions to `index.css`
+
+- Welcome screen keyframes: `curtain-up`, `marquee-scroll`, `progress-fill`
+- Hero role-flip animation: `role-slide-up` for the clipping text container
+- Custom cursor styles
+- Large typography utility classes
+
+### 5. Update `Index.tsx`
+
+- Add `WelcomeScreen` as the first component (manages its own mount/unmount via state)
+- Add `CustomCursor` component
+- Hero sections delayed entrance tied to welcome screen completion via a shared state/callback
+
+---
+
+## Files Modified/Created
+
+| File | Action |
+|------|--------|
+| `src/components/WelcomeScreen.tsx` | Create -- loading/welcome overlay |
+| `src/components/CustomCursor.tsx` | Create -- smooth following cursor |
+| `src/components/Hero.tsx` | Rewrite -- large typography hero layout |
+| `src/pages/Index.tsx` | Update -- add WelcomeScreen + CustomCursor |
+| `src/index.css` | Add -- welcome, cursor, and hero typography animations |
 
 ### No New Dependencies
-All effects use React refs, inline styles, CSS custom properties, and existing CSS animation keyframes. No external libraries needed.
+All effects use `requestAnimationFrame`, CSS transforms/transitions, and React state. No GSAP or ThreeJS needed.
+
