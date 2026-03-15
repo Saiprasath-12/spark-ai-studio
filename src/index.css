@@ -173,6 +173,10 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+@keyframes scanLine {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
 
 .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
 .animate-float-medium { animation: float-medium 4s ease-in-out infinite; }
