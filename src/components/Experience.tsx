@@ -332,7 +332,7 @@ const Experience = () => {
         {/* Header */}
         <div className="absolute top-12 left-0 right-0 text-center z-20">
           <h2 className="text-4xl md:text-6xl font-black">
-            <span className="text-gradient">Professional Experience</span>
+            <span className="text-gradient">Experience</span>
           </h2>
           <p className="text-muted-foreground mt-3 text-sm">Scroll to explore my journey</p>
         </div>
