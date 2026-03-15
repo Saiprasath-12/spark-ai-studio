@@ -69,9 +69,9 @@ const Connect = () => {
                     <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                       <IconComp className="text-primary" size={20} />
                     </div>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <div className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">{info.label}</div>
-                      <div className="font-bold text-foreground text-sm mt-1">{info.value}</div>
+                      <div className="font-bold text-foreground text-sm mt-1 break-all">{info.value}</div>
                       {info.sub && <div className="text-xs text-muted-foreground/70 mt-0.5">{info.sub}</div>}
                     </div>
                   </div>
