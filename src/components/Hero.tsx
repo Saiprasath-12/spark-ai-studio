@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowDown, Github, Linkedin, Mail, Instagram } from 'lucide-react';
-import profileImg from '@/assets/profile.jpeg';
+import profileImg from '@/assets/profile-new.png';
 
 const roles = [
   'Developer',
@@ -80,9 +80,9 @@ const Hero = ({ entered = true }: HeroProps) => {
           </h1>
 
           {/* Role flipper */}
-          <div className={`flex items-baseline gap-3 justify-center lg:justify-start ${t} ${base}`} style={{ transitionDelay: '0.55s' }}>
-            <span className="text-lg md:text-xl text-muted-foreground">A Full-Stack</span>
-            <div className="h-8 md:h-10 overflow-hidden relative w-40 md:w-52">
+          <div className={`flex items-center gap-3 justify-center lg:justify-start ${t} ${base}`} style={{ transitionDelay: '0.55s' }}>
+            <span className="text-lg md:text-xl text-muted-foreground leading-none">A Full-Stack</span>
+            <div className="h-8 md:h-10 overflow-hidden relative w-40 md:w-52 flex items-center">
               {roles.map((role, i) => (
                 <span
                   key={role}
