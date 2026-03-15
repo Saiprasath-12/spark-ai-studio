@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
 import ProjectShowcase from '@/components/ProjectShowcase';
+import Experience from '@/components/Experience';
 import Milestones from '@/components/Milestones';
 import Blog from '@/components/Blog';
 import Connect from '@/components/Connect';
