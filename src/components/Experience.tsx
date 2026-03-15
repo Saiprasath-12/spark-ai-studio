@@ -239,7 +239,7 @@ const Experience = () => {
       <section id="experience" className="py-20 px-6 relative" style={{ background: '#0a0a0f' }}>
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-5xl font-black text-center mb-12">
-            <span className="text-gradient">Professional Experience</span>
+            <span className="text-gradient">Experience</span>
           </h2>
           <div className="flex flex-col gap-6 max-w-md mx-auto">
             {experiences.map((card) => {
