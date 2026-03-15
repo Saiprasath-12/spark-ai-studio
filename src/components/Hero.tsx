@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowDown, Github, Linkedin, Mail, Instagram } from 'lucide-react';
-import profileImg from '@/assets/profile.jpeg';
+import profileImg from '@/assets/profile-new.png';
 
 const roles = [
   'Developer',
