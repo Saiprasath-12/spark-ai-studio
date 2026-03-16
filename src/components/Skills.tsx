@@ -181,8 +181,30 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-24 relative" ref={scrollRef}>
-      <div className="container mx-auto px-6">
+    <section id="skills" className="py-24 relative overflow-hidden" ref={scrollRef}>
+      {/* Floating particles */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        {Array.from({ length: 35 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full animate-skill-particle"
+            style={{
+              width: `${Math.random() * 3 + 1.5}px`,
+              height: `${Math.random() * 3 + 1.5}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              background: `hsl(var(--primary) / ${Math.random() * 0.4 + 0.15})`,
+              animationDuration: `${Math.random() * 12 + 10}s`,
+              animationDelay: `${Math.random() * -20}s`,
+            }}
+          />
+        ))}
+      </div>
+      {/* Glow orbs */}
+      <div className="absolute top-10 left-1/4 w-72 h-72 rounded-full opacity-[0.04]" style={{ background: 'hsl(var(--primary))', filter: 'blur(100px)' }} />
+      <div className="absolute bottom-10 right-1/4 w-60 h-60 rounded-full opacity-[0.03]" style={{ background: 'hsl(270 60% 50%)', filter: 'blur(100px)' }} />
+
+      <div className="container mx-auto px-6 relative z-10">
         <h2 className="text-4xl font-black text-gradient text-center mb-10 animate-on-scroll">Technical Core</h2>
         <div className="flex flex-wrap justify-center gap-3 mb-12 animate-on-scroll stagger-1">
           {categories.map((cat) => (
