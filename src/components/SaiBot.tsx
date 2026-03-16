@@ -7,7 +7,7 @@ type Message = { role: 'user' | 'assistant'; text: string };
 const SaiBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', text: "Yo! 🚀 I'm SaiBot. Ask me anything about Saiprasath's skills or PSG iTech journey! ✨" },
+    { role: 'assistant', text: "Yo! 🚀 I'm SaiGPT. Ask me anything about Saiprasath's skills or PSG iTech journey! ✨" },
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
