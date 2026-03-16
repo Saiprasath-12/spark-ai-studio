@@ -7,7 +7,7 @@ type Message = { role: 'user' | 'assistant'; text: string };
 const SaiBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', text: "Yo! 🚀 I'm SaiBot. Ask me anything about Saiprasath's skills or PSG iTech journey! ✨" },
+    { role: 'assistant', text: "Yo! 🚀 I'm SaiGPT. Ask me anything about Saiprasath's skills or PSG iTech journey! ✨" },
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -55,7 +55,7 @@ const SaiBot = () => {
         <div className="flex items-center justify-between p-4 border-b border-border/50 bg-primary/5">
           <div className="flex items-center gap-3">
             <Bot className="text-primary" size={20} />
-            <span className="font-bold text-foreground text-sm">SaiBot</span>
+            <span className="font-bold text-foreground text-sm">SaiGPT</span>
           </div>
           <button onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-foreground hover:scale-110 transition-all p-1">
             <X size={18} />
