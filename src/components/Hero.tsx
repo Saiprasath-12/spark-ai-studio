@@ -3,10 +3,10 @@ import { ArrowDown, Github, Linkedin, Mail, Instagram } from 'lucide-react';
 import profileImg from '@/assets/profile-new.png';
 
 const roles = [
-  'Developer',
-  'AI Engineer',
-  'Architect',
-  'Creator',
+  'Software Engineer',
+  'Backend Developer',
+  'Healthcare AI Systems',
+  'Full Stack Developer',
 ];
 
 interface HeroProps {
@@ -80,9 +80,9 @@ const Hero = ({ entered = true }: HeroProps) => {
           </h1>
 
           {/* Role flipper */}
-          <div className={`flex items-center gap-3 justify-center lg:justify-start ${t} ${base}`} style={{ transitionDelay: '0.55s' }}>
-            <span className="text-lg md:text-xl text-muted-foreground leading-none">A Full-Stack</span>
-            <div className="h-8 md:h-10 overflow-hidden relative w-40 md:w-52 flex items-center">
+          <div className={`flex items-center gap-3 justify-center lg:justify-start flex-wrap ${t} ${base}`} style={{ transitionDelay: '0.55s' }}>
+            <span className="text-lg md:text-xl text-muted-foreground leading-none">I build</span>
+            <div className="h-8 md:h-10 overflow-hidden relative min-w-[240px] md:min-w-[320px] flex items-center">
               {roles.map((role, i) => (
                 <span
                   key={role}
@@ -99,8 +99,8 @@ const Hero = ({ entered = true }: HeroProps) => {
           </div>
 
           {/* Description */}
-          <p className={`text-base text-muted-foreground/80 max-w-lg mx-auto lg:mx-0 ${t} ${base}`} style={{ transitionDelay: '0.7s' }}>
-            Building intelligent systems and scalable web applications with clean, modern development practices.
+          <p className={`text-base text-muted-foreground/80 max-w-xl mx-auto lg:mx-0 ${t} ${base}`} style={{ transitionDelay: '0.7s' }}>
+            CSBS undergraduate at PSG iTech building intelligent healthcare, backend, and full-stack systems. Currently engineering real-time patient deterioration surveillance for PSG Hospitals.
           </p>
 
           {/* CTAs */}
@@ -124,10 +124,10 @@ const Hero = ({ entered = true }: HeroProps) => {
           {/* Socials */}
           <div className={`flex gap-5 justify-center lg:justify-start pt-4 ${t} ${base}`} style={{ transitionDelay: '1s' }}>
             {[
-              { icon: Github, href: 'https://github.com/Saiprasath-12' },
-              { icon: Linkedin, href: '#' },
-              { icon: Mail, href: 'mailto:saiprasath161@gmail.com' },
-              { icon: Instagram, href: 'https://www.instagram.com/sai.prasath.12' },
+              { icon: Github, href: 'https://github.com/Saiprasath-12', label: 'GitHub' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/saiprasath-m', label: 'LinkedIn' },
+              { icon: Mail, href: 'mailto:saiprasath161@gmail.com', label: 'Email' },
+              { icon: Instagram, href: 'https://www.instagram.com/sai.prasath.12', label: 'Instagram' },
             ].map((s, i) => {
               const SIcon = s.icon;
               return (
@@ -136,6 +136,7 @@ const Hero = ({ entered = true }: HeroProps) => {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={s.label}
                   className="text-muted-foreground hover:text-primary transition-all hover:scale-125 hover:-translate-y-1"
                 >
                   <SIcon size={22} />

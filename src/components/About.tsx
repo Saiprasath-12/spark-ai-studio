@@ -3,10 +3,10 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useEffect, useRef, useState } from 'react';
 
 const stats = [
-  { label: 'Projects Built', value: 20, suffix: '+', icon: Code, color: 'text-primary' },
+  { label: 'B.Tech CGPA', value: 8.5, suffix: ' / 10', icon: GraduationCap, color: 'text-primary' },
   { label: 'Hackathons', value: 7, suffix: '+', icon: Zap, color: 'text-yellow-400' },
-  { label: 'B.Tech CGPA', value: 8.5, suffix: '', icon: GraduationCap, color: 'text-purple-400' },
-  { label: 'Special Mentions', value: 2, suffix: '', icon: Activity, color: 'text-emerald-400' },
+  { label: 'HSC Score', value: 96.8, suffix: '%', icon: Activity, color: 'text-emerald-400' },
+  { label: 'Projects Built', value: 15, suffix: '+', icon: Code, color: 'text-purple-400' },
 ];
 
 const CountUp = ({ target, suffix }: { target: number; suffix: string }) => {
