@@ -1,20 +1,21 @@
-import { Github, Instagram, Linkedin, Mail, ArrowUp } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUp, Code2, ExternalLink } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', id: 'home' },
   { name: 'About', id: 'about' },
   { name: 'Skills', id: 'skills' },
-  { name: 'Showcase', id: 'projects' },
-  { name: 'Milestones', id: 'milestones' },
-  { name: 'Blog', id: 'blog' },
-  { name: 'Connect', id: 'contact' },
+  { name: 'Projects', id: 'projects' },
+  { name: 'Experience', id: 'experience' },
+  { name: 'Achievements', id: 'milestones' },
+  { name: 'Contact', id: 'contact' },
 ];
 
 const socials = [
-  { icon: Github, href: 'https://github.com/Saiprasath-12' },
-  { icon: Instagram, href: 'https://www.instagram.com/sai.prasath.12' },
-  { icon: Linkedin, href: '#' },
-  { icon: Mail, href: 'mailto:saiprasath161@gmail.com' },
+  { icon: Github, href: 'https://github.com/Saiprasath-12', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/saiprasath-m', label: 'LinkedIn' },
+  { icon: Code2, href: 'https://leetcode.com/u/Saiprasath05', label: 'LeetCode' },
+  { icon: ExternalLink, href: 'https://saiprasathblog01.hashnode.dev', label: 'Hashnode' },
+  { icon: Mail, href: 'mailto:saiprasath161@gmail.com', label: 'Email' },
 ];
 
 const Footer = () => {
@@ -25,21 +26,27 @@ const Footer = () => {
 
   return (
     <footer className="relative pt-20 pb-8">
-      {/* Gradient divider with shimmer */}
       <div className="absolute top-0 left-0 right-0 h-px overflow-hidden">
         <div className="w-full h-full bg-gradient-to-r from-transparent via-primary/60 to-transparent animate-gradient" style={{ backgroundSize: '200% 100%' }} />
       </div>
 
       <div className="container mx-auto px-6">
-        {/* Three-column layout */}
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           {/* Brand */}
           <div className="text-center md:text-left space-y-4">
             <div className="text-5xl font-black text-gradient glow-cyan inline-block">S</div>
             <h3 className="text-lg font-bold text-foreground">SAIPRASATH M</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Full-Stack Developer & AI Engineer crafting intelligent, scalable systems with modern technologies.
+              Software Engineer • Backend Developer • Healthcare AI Systems • Full-Stack Developer building intelligent, scalable software.
             </p>
+            <a
+              href="https://www.saiprasath.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-xs text-primary hover:underline"
+            >
+              www.saiprasath.in <ExternalLink size={10} />
+            </a>
           </div>
 
           {/* Navigation */}
@@ -64,7 +71,7 @@ const Footer = () => {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p>saiprasath161@gmail.com</p>
               <p>+91 90423 90940</p>
-              <p>Available Worldwide</p>
+              <p>Coimbatore, Tamil Nadu, India</p>
             </div>
             <div className="flex gap-3 justify-center md:justify-end">
               {socials.map((s, i) => {
@@ -75,6 +82,8 @@ const Footer = () => {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={s.label}
+                    title={s.label}
                     className="p-2.5 glass rounded-xl hover:bg-primary/10 hover:scale-110 hover:-translate-y-1 transition-all duration-300"
                   >
                     <SIcon size={16} className="text-muted-foreground hover:text-primary transition-colors" />
@@ -85,7 +94,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="border-t border-border/30 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground/50">
             © {new Date().getFullYear()} SAIPRASATH M. All rights reserved.

@@ -106,6 +106,8 @@ const Connect = () => {
                       href={s.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={s.label}
+                      title={s.label}
                       className="p-3 bg-primary/10 rounded-xl hover:bg-primary/20 hover:scale-125 hover:-translate-y-1 transition-all duration-300 group/social"
                     >
                       <SIcon className="text-primary group-hover/social:drop-shadow-[0_0_8px_hsl(187_92%_50%/0.6)]" size={20} />
