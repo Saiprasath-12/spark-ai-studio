@@ -7,7 +7,7 @@ import {
   AnimatePresence,
 } from 'framer-motion';
 import { useState } from 'react';
-import { Briefcase, Code2, Brain, Rocket, Layers, Cpu } from 'lucide-react';
+import { Briefcase, Code2, Brain, Rocket, Layers, Cpu, Stethoscope, Cloud, GraduationCap } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ExperienceCard {
@@ -22,58 +22,49 @@ interface ExperienceCard {
 
 const experiences: ExperienceCard[] = [
   {
-    icon: Rocket,
-    date: '2025 – Present',
-    role: 'AI Engineer',
-    company: 'Freelance',
-    description: 'Building intelligent automation systems and AI-powered applications.',
-    skills: ['Python', 'LangChain', 'OpenAI', 'RAG'],
+    icon: Stethoscope,
+    date: 'June 2026 – Present',
+    role: 'Software Engineer Intern',
+    company: 'IMSR (PSG Hospitals)',
+    description: 'Building real-time Patient Deterioration Surveillance System integrated into PSG Hospitals\' EMR platform serving 5000+ patients and 500+ healthcare professionals. Contributing to models achieving ~92% prediction accuracy.',
+    skills: ['Python', 'Flask', 'MySQL', 'Computer Vision', 'Healthcare AI'],
     accent: '#00d4ff',
   },
   {
-    icon: Code2,
-    date: '2024 – 2025',
-    role: 'Full-Stack Developer',
-    company: 'Projects & Freelance',
-    description: 'Developing scalable web applications with modern frameworks.',
-    skills: ['React', 'Node.js', 'TypeScript', 'Tailwind'],
-    accent: '#a855f7',
-  },
-  {
-    icon: Brain,
-    date: '2024',
-    role: 'ML Research Intern',
-    company: 'Academic Research',
-    description: 'Explored deep learning architectures for NLP and computer vision tasks.',
-    skills: ['PyTorch', 'TensorFlow', 'NLP', 'CV'],
-    accent: '#22c55e',
-  },
-  {
-    icon: Layers,
-    date: '2023 – 2024',
-    role: 'Backend Developer',
-    company: 'Student Projects',
-    description: 'Designed REST APIs and database architectures for production apps.',
-    skills: ['FastAPI', 'PostgreSQL', 'Docker', 'Redis'],
+    icon: Cloud,
+    date: 'Jan 2025 – June 2025',
+    role: 'Generative AI Intern',
+    company: 'Oracle AI Program',
+    description: 'Trained under Oracle + Naan Mudhalvan + Adroit Technologies on Oracle Cloud Infrastructure, Generative AI, Prompt Engineering, LLMs, and Retrieval-Augmented Generation (RAG) workflows.',
+    skills: ['OCI', 'GenAI', 'RAG', 'LLMs', 'Prompt Engineering'],
     accent: '#f59e0b',
   },
   {
-    icon: Cpu,
-    date: '2023',
-    role: 'IoT Developer',
-    company: 'Hackathon Projects',
-    description: 'Built embedded systems and IoT prototypes with real-time data.',
-    skills: ['Arduino', 'Raspberry Pi', 'MQTT', 'Sensors'],
-    accent: '#ef4444',
+    icon: GraduationCap,
+    date: 'Aug 2023 – May 2027',
+    role: 'B.Tech CSBS Undergraduate',
+    company: 'PSG Institute of Technology and Applied Research',
+    description: 'Computer Science and Business Systems. CGPA 8.5/10. Reliance Foundation Undergraduate Scholar. Active contributor to hackathons and research projects.',
+    skills: ['DSA', 'OOP', 'DBMS', 'Operating Systems'],
+    accent: '#a855f7',
   },
   {
     icon: Briefcase,
-    date: '2022 – 2023',
-    role: 'Web Developer',
-    company: 'College Club',
-    description: 'Created event websites and dashboards for college organizations.',
-    skills: ['HTML/CSS', 'JavaScript', 'Firebase', 'Figma'],
-    accent: '#06b6d4',
+    date: 'Ongoing',
+    role: 'CSE Association Event Coordinator',
+    company: 'PSG iTech',
+    description: 'Coordinated technical events and student engagement initiatives; assisted in conducting technical sessions and departmental activities.',
+    skills: ['Leadership', 'Event Ops', 'Communication'],
+    accent: '#22c55e',
+  },
+  {
+    icon: Cpu,
+    date: 'Ongoing',
+    role: 'Gym Secretary',
+    company: 'PSG iTech',
+    description: 'Organized fitness-awareness initiatives and healthy lifestyle workshops attended by 100+ students; promoted wellness across campus.',
+    skills: ['Leadership', 'Wellness', 'Community'],
+    accent: '#ef4444',
   },
 ];
 

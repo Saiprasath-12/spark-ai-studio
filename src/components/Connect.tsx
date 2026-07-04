@@ -1,28 +1,29 @@
-import { MapPin, Phone, Clock, Zap, Mail, Github, Instagram, Linkedin, Terminal } from 'lucide-react';
+import { MapPin, Phone, Clock, Zap, Mail, Github, Linkedin, Terminal, Code2, ExternalLink } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'saiprasath161@gmail.com', sub: 'Drop me a line anytime' },
-  { icon: Phone, label: 'Phone', value: '+91 90423 90940', sub: 'Mon-Sat from 8am to 10pm' },
-  { icon: MapPin, label: 'Location', value: 'Available Worldwide', sub: 'Remote & on-site projects' },
+  { icon: Phone, label: 'Phone', value: '+91 90423 90940', sub: 'Mon–Sat, 8am to 10pm IST' },
+  { icon: MapPin, label: 'Location', value: 'Coimbatore, Tamil Nadu', sub: 'Open to relocation & remote' },
   { icon: Clock, label: 'Response Time', value: 'Within 24 hours', sub: 'Quick turnaround guaranteed' },
 ];
 
 const services = [
-  '🚀 Full-stack Web Development',
-  '🤖 AI-Powered Automation Solutions',
-  '🧠 Machine Learning Integration',
-  '📊 Data Analysis & Visualization',
+  '🏥 Healthcare AI & Patient Monitoring Systems',
+  '⚙️ Backend Development & REST API Design',
+  '🚀 Full-Stack Web Applications (React / Next.js)',
+  '🧠 Applied Machine Learning & Computer Vision',
+  '☁️ Oracle Cloud Infrastructure & RAG Workflows',
+  '🔗 Blockchain & Traceability Platforms',
   '💡 Technical Consulting & Code Review',
-  '☁️ Cloud Integration & DevOps',
-  '🧪 Research & Prototype Development',
 ];
 
 const socials = [
-  { icon: Github, href: 'https://github.com/Saiprasath-12' },
-  { icon: Instagram, href: 'https://www.instagram.com/sai.prasath.12' },
-  { icon: Linkedin, href: '#' },
-  { icon: Mail, href: 'mailto:saiprasath161@gmail.com' },
+  { icon: Github, href: 'https://github.com/Saiprasath-12', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/saiprasath-m', label: 'LinkedIn' },
+  { icon: Code2, href: 'https://leetcode.com/u/Saiprasath05', label: 'LeetCode' },
+  { icon: ExternalLink, href: 'https://saiprasathblog01.hashnode.dev', label: 'Hashnode' },
+  { icon: Mail, href: 'mailto:saiprasath161@gmail.com', label: 'Email' },
 ];
 
 const floatingTerminals = [
