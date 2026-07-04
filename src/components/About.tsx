@@ -3,10 +3,10 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useEffect, useRef, useState } from 'react';
 
 const stats = [
-  { label: 'Projects Built', value: 20, suffix: '+', icon: Code, color: 'text-primary' },
+  { label: 'B.Tech CGPA', value: 8.5, suffix: ' / 10', icon: GraduationCap, color: 'text-primary' },
   { label: 'Hackathons', value: 7, suffix: '+', icon: Zap, color: 'text-yellow-400' },
-  { label: 'B.Tech CGPA', value: 8.5, suffix: '', icon: GraduationCap, color: 'text-purple-400' },
-  { label: 'Special Mentions', value: 2, suffix: '', icon: Activity, color: 'text-emerald-400' },
+  { label: 'HSC Score', value: 96.8, suffix: '%', icon: Activity, color: 'text-emerald-400' },
+  { label: 'Projects Built', value: 15, suffix: '+', icon: Code, color: 'text-purple-400' },
 ];
 
 const CountUp = ({ target, suffix }: { target: number; suffix: string }) => {
@@ -44,10 +44,11 @@ const About = () => {
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16">
           <div className="space-y-8">
-            <h2 className="text-4xl font-black text-gradient animate-on-scroll">Software Engineer</h2>
+            <h2 className="text-4xl font-black text-gradient animate-on-scroll">About Me</h2>
             <div className="space-y-4 text-muted-foreground animate-on-scroll stagger-1">
-              <p>I am an aspiring Software Engineer passionate about building scalable, high-performance web applications. With a strong foundation in full-stack development, I focus on design patterns and solving real-world challenges.</p>
-              <p>I thrive on turning complex logic into efficient, user-centric experiences while maintaining a rigorous standard for code integrity.</p>
+              <p>Computer Science and Business Systems undergraduate at PSG Institute of Technology and Applied Research (Class of 2027, CGPA 8.5/10), focused on Software Engineering, Backend Development, Healthcare AI, and Cloud Computing.</p>
+              <p>Reliance Foundation Undergraduate Scholar with experience across healthcare systems, blockchain applications, full-stack development, and applied machine learning. Actively participating in hackathons and research-oriented projects.</p>
+              <p className="text-foreground/80 font-semibold pt-1">Career Goal: To join a top product company such as Google, Microsoft, Amazon, Oracle, Atlassian, Walmart Global Tech, PayPal, or JPMorgan Chase as a Software Engineer.</p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {stats.map((stat, i) => {

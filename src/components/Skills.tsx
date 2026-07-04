@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
-const categories = ['All', 'Languages', 'AI Ecosystem', 'Full Stack', 'Database', 'DevOps & Tools'];
+const categories = ['All', 'Languages', 'Frontend', 'Backend', 'AI / ML', 'Database', 'Cloud & Tools'];
 
 interface Skill { name: string; cat: string; Icon: LucideIcon; color: string }
 
@@ -16,29 +16,29 @@ const allSkills: Skill[] = [
   { name: 'Java', cat: 'Languages', Icon: Code, color: '#f89820' },
   { name: 'Python', cat: 'Languages', Icon: Terminal, color: '#3776ab' },
   { name: 'C', cat: 'Languages', Icon: Cpu, color: '#a8b9cc' },
+  { name: 'JavaScript', cat: 'Languages', Icon: FileCode, color: '#f7df1e' },
   { name: 'TypeScript', cat: 'Languages', Icon: FileCode, color: '#3178c6' },
-  { name: 'Gemini', cat: 'AI Ecosystem', Icon: Sparkles, color: '#8b5cf6' },
-  { name: 'DeepSeek', cat: 'AI Ecosystem', Icon: Search, color: '#0ea5e9' },
-  { name: 'Claude AI', cat: 'AI Ecosystem', Icon: Brain, color: '#d97706' },
-  { name: 'Nanobana', cat: 'AI Ecosystem', Icon: Bot, color: '#f59e0b' },
-  { name: 'Flow', cat: 'AI Ecosystem', Icon: Workflow, color: '#06b6d4' },
-  { name: 'Antigravity', cat: 'AI Ecosystem', Icon: Rocket, color: '#ef4444' },
-  { name: 'React', cat: 'Full Stack', Icon: Atom, color: '#61dafb' },
-  { name: 'Flask', cat: 'Full Stack', Icon: FlaskConical, color: '#22c55e' },
-  { name: 'Tailwind CSS', cat: 'Full Stack', Icon: Paintbrush, color: '#38bdf8' },
-  { name: 'HTML5', cat: 'Full Stack', Icon: Globe, color: '#e34f26' },
-  { name: 'CSS3', cat: 'Full Stack', Icon: Palette, color: '#264de4' },
-  { name: 'Node.js', cat: 'Full Stack', Icon: Server, color: '#68a063' },
+  { name: 'React.js', cat: 'Frontend', Icon: Atom, color: '#61dafb' },
+  { name: 'Next.js', cat: 'Frontend', Icon: Triangle, color: '#ffffff' },
+  { name: 'HTML5', cat: 'Frontend', Icon: Globe, color: '#e34f26' },
+  { name: 'CSS3', cat: 'Frontend', Icon: Palette, color: '#264de4' },
+  { name: 'Tailwind CSS', cat: 'Frontend', Icon: Paintbrush, color: '#38bdf8' },
+  { name: 'Flask', cat: 'Backend', Icon: FlaskConical, color: '#22c55e' },
+  { name: 'REST APIs', cat: 'Backend', Icon: Server, color: '#8b5cf6' },
+  { name: 'Node.js', cat: 'Backend', Icon: Server, color: '#68a063' },
+  { name: 'Machine Learning', cat: 'AI / ML', Icon: Brain, color: '#8b5cf6' },
+  { name: 'Deep Learning', cat: 'AI / ML', Icon: Sparkles, color: '#a855f7' },
+  { name: 'Computer Vision', cat: 'AI / ML', Icon: Search, color: '#0ea5e9' },
+  { name: 'NLP', cat: 'AI / ML', Icon: Bot, color: '#f59e0b' },
+  { name: 'Time-Series', cat: 'AI / ML', Icon: Workflow, color: '#06b6d4' },
+  { name: 'RAG / LLMs', cat: 'AI / ML', Icon: Rocket, color: '#ef4444' },
   { name: 'MySQL', cat: 'Database', Icon: Database, color: '#00758f' },
-  { name: 'Firebase', cat: 'Database', Icon: Flame, color: '#ffca28' },
   { name: 'MongoDB', cat: 'Database', Icon: Leaf, color: '#47a248' },
-  { name: 'Supabase', cat: 'Database', Icon: Cloud, color: '#3ecf8e' },
-  { name: 'Vercel', cat: 'DevOps & Tools', Icon: Triangle, color: '#ffffff' },
-  { name: 'Git', cat: 'DevOps & Tools', Icon: GitBranch, color: '#f05032' },
-  { name: 'GitHub', cat: 'DevOps & Tools', Icon: Github, color: '#c9d1d9' },
-  { name: 'Docker', cat: 'DevOps & Tools', Icon: Container, color: '#2496ed' },
-  { name: 'Postman', cat: 'DevOps & Tools', Icon: Send, color: '#ff6c37' },
-  { name: 'VS Code', cat: 'DevOps & Tools', Icon: Code2, color: '#007acc' },
+  { name: 'Oracle Cloud (OCI)', cat: 'Cloud & Tools', Icon: Cloud, color: '#f80000' },
+  { name: 'Git', cat: 'Cloud & Tools', Icon: GitBranch, color: '#f05032' },
+  { name: 'GitHub', cat: 'Cloud & Tools', Icon: Github, color: '#c9d1d9' },
+  { name: 'Postman', cat: 'Cloud & Tools', Icon: Send, color: '#ff6c37' },
+  { name: 'VS Code', cat: 'Cloud & Tools', Icon: Code2, color: '#007acc' },
 ];
 
 /* ── Magnetic Filter Pill ── */
