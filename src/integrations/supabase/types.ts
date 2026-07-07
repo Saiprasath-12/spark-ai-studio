@@ -43,7 +43,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      increment_page_view: { Args: { page_path?: string }; Returns: number }
+      [_ in never]: never
     }
     Enums: {
       [_ in never]: never
