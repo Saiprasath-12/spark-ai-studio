@@ -1,5 +1,6 @@
-import { MapPin, Phone, Clock, Zap, Mail, Github, Linkedin, Terminal, Code2, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Clock, Zap, Mail, Github, Linkedin, Terminal, Code2, ExternalLink, Download, FileText } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import resumeAsset from '@/assets/saiprasath-resume.pdf.asset.json';
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'saiprasath161@gmail.com', sub: 'Drop me a line anytime' },
@@ -96,7 +97,40 @@ const Connect = () => {
               </ul>
             </div>
 
-            <div className="glass rounded-2xl p-5 flex flex-col items-center gap-3 animate-on-scroll stagger-4">
+            <div className="glass rounded-2xl p-5 animate-on-scroll stagger-4 connect-card-glow">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2.5 bg-primary/10 rounded-xl">
+                  <FileText className="text-primary" size={20} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-sm font-bold text-foreground">Resume</div>
+                  <div className="text-xs text-muted-foreground">Updated {new Date().getFullYear()} · PDF</div>
+                </div>
+              </div>
+              <div className="flex gap-2">
+                <a
+                  href={resumeAsset.url}
+                  download="Saiprasath-M-Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 group px-4 py-2.5 bg-primary text-primary-foreground font-bold text-sm rounded-xl hover:scale-105 transition-all flex items-center justify-center gap-2 glow-cyan-sm"
+                >
+                  <Download size={14} className="group-hover:translate-y-0.5 transition-transform" />
+                  Download
+                </a>
+                <a
+                  href={resumeAsset.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 glass border border-primary/30 hover:border-primary text-foreground font-bold text-sm rounded-xl hover:scale-105 transition-all flex items-center justify-center gap-2"
+                >
+                  <ExternalLink size={14} />
+                  View
+                </a>
+              </div>
+            </div>
+
+            <div className="glass rounded-2xl p-5 flex flex-col items-center gap-3 animate-on-scroll stagger-5">
               <div className="flex gap-3">
                 {socials.map((s, i) => {
                   const SIcon = s.icon;
@@ -117,6 +151,7 @@ const Connect = () => {
               </div>
               <span className="text-xs text-muted-foreground">Follow & Message</span>
             </div>
+
           </div>
         </div>
       </div>

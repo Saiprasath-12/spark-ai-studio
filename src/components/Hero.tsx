@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { ArrowDown, Github, Linkedin, Mail, Instagram } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Instagram, Download } from 'lucide-react';
 import profileImg from '@/assets/profile-new.png';
+import resumeAsset from '@/assets/saiprasath-resume.pdf.asset.json';
 
 const roles = [
   'Software Engineer',
@@ -118,6 +119,16 @@ const Hero = ({ entered = true }: HeroProps) => {
               className="px-8 py-3 glass font-bold rounded-2xl text-foreground hover:bg-secondary transition-all hover:scale-105 border border-border/50 hover:border-primary/30"
             >
               Get In Touch
+            </a>
+            <a
+              href={resumeAsset.url}
+              download="Saiprasath-M-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group px-8 py-3 glass font-bold rounded-2xl text-foreground hover:bg-primary/10 transition-all hover:scale-105 border border-primary/40 hover:border-primary flex items-center gap-2"
+            >
+              <Download size={16} className="group-hover:translate-y-0.5 transition-transform" />
+              Resume
             </a>
           </div>
 

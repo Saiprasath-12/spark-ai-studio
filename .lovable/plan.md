@@ -1,60 +1,22 @@
-## Update SaiGPT Knowledge Base
+# Add Resume to Portfolio
 
-The SaiGPT system prompt in `supabase/functions/saibot-chat/index.ts` is outdated (still lists old projects like Financial Management System, Vitals Monitoring AI, no internships, no scholarship, no awards). Rewrite it to match the current portfolio.
+## Plan
 
-### File modified
-`supabase/functions/saibot-chat/index.ts` — replace the `SYSTEM_PROMPT` constant only. No UI or other logic changes.
+1. **Upload the resume PDF as a Lovable Asset** (CDN-hosted) via `lovable-assets create` — produces `src/assets/saiprasath-resume.pdf.asset.json`. The PDF stays on CDN, not in the repo.
 
-### New content SaiGPT will know
+2. **Hero section (`src/components/Hero.tsx`)** — Add a "Download Resume" button next to the existing "View My Work" and "Get In Touch" CTAs. Uses a `Download` lucide icon, styled as a secondary glass button matching the existing design. Opens the CDN URL with `download` attribute.
 
-**Identity**
-- SAIPRASATH M, based in Coimbatore, Tamil Nadu
-- B.Tech CSBS at PSG iTech (2023–2027), CGPA 8.5/10
-- Reliance Foundation Undergraduate Scholar
+3. **Connect section (`src/components/Connect.tsx`)** — Add a prominent "Download Resume" action button above/near the socials block so recruiters can grab it from the contact area too. Includes a small "View Resume" link that opens the PDF in a new tab.
 
-**Internships / Experience**
-- Software Engineer Intern — IMSR, PSG Hospitals (Jun 2026–Present): Patient Deterioration Surveillance System on EMR, 5000+ patients, ~92% accuracy
-- Generative AI Intern — Oracle AI Program (Jan–Jun 2025): OCI, GenAI, RAG, LLMs, prompt engineering
-- CSE Association Event Coordinator — PSG iTech
-- Gym Secretary — PSG iTech
+4. **Floating nav (optional, minimal)** — No change; keeps nav clean.
 
-**Projects**
-- Smart Elderly Care & Patient Deterioration Surveillance (CV + IoT + predictive analytics, ~₹3L institution-funded)
-- AgriChain-Nizamabad (blockchain agri traceability, presented at BITS Pilani Hyderabad)
-- Society Finance Management (React + Flask + MySQL)
-- Mentis AI (adaptive learning PWA)
-- Fake News Detection System (Flask + React + NLP)
-- Virus Hunter (signature-based antivirus simulation)
+5. **SEO** — No metadata change needed; PDF is served from CDN with proper content-type.
 
-**Awards & Recognition**
-- SAP × Great Lakes Hackfest 2026 — Top 30 of 500+ teams
-- NASA Space Apps Challenge 2025 — Galactic Problem Solver
-- Nallas CodeXcelerate 2025 — National Finalist
-- PSG iTech Project Expo 2025 — Special Mention
-- BITS Pilani Hyderabad — Innovation Showcase presenter
+## Technical details
 
-**Certifications**
-- OCI 2025 AI Foundations Associate
-- OCI 2025 Foundations Associate
-- NPTEL Elite — Google Cloud Computing Foundations
-- Oracle Generative AI Internship Certificate
-- NASA Space Apps 2025 Galactic Problem Solver
+- File: `user-uploads://resume_2_2027.pdf` → uploaded via `lovable-assets create --file /mnt/user-uploads/resume_2_2027.pdf --filename Saiprasath-M-Resume.pdf`
+- Import: `import resumeAsset from '@/assets/saiprasath-resume.pdf.asset.json'`
+- Usage: `<a href={resumeAsset.url} download="Saiprasath-M-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>`
+- Filename shown to recruiter on download: `Saiprasath-M-Resume.pdf`
 
-**Skills** (kept up to date)
-- Languages: Java, Python, C, JS/TS
-- Frontend: React, Next.js, Tailwind
-- Backend: Flask, Node.js, REST APIs
-- AI/ML: CV, NLP, Deep Learning, Time-Series, RAG/LLMs
-- DB: MySQL, MongoDB
-- Cloud/Tools: OCI, Git, GitHub, Postman
-
-**Contact**
-- saiprasath161@gmail.com, +91-9042390940
-- LinkedIn: linkedin.com/in/saiprasath-m
-- GitHub: github.com/Saiprasath-12
-- LeetCode: leetcode.com/u/Saiprasath05
-
-### Preserved
-- Persona: energetic dev vibe, tech emojis (🚀 💻 ✨ 🔥)
-- Max 2 sentences per response constraint
-- `analysis` mode branch (unchanged)
+No new dependencies. Two files modified, one asset pointer created.
