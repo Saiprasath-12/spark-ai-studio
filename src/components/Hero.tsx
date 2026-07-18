@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { ArrowDown, Github, Linkedin, Mail, Instagram } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Instagram, Download } from 'lucide-react';
 import profileImg from '@/assets/profile-new.png';
+import resumeAsset from '@/assets/saiprasath-resume.pdf.asset.json';
 
 const roles = [
   'Software Engineer',
