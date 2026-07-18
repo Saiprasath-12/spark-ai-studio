@@ -157,6 +157,55 @@ const Hero = ({ entered = true }: HeroProps) => {
               );
             })}
           </div>
+
+          {/* Value Proposition Cards */}
+          <div className={`grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 ${t} ${base}`} style={{ transitionDelay: '1.15s' }}>
+            {[
+              {
+                icon: Briefcase,
+                number: '2+',
+                label: 'Internships',
+                desc: 'PSG Hospitals & Oracle GenAI',
+                float: 'value-card-float-1',
+              },
+              {
+                icon: Code2,
+                number: '5+',
+                label: 'Projects',
+                desc: 'Healthcare, Blockchain & AI',
+                float: 'value-card-float-2',
+              },
+              {
+                icon: Trophy,
+                number: '4+',
+                label: 'Awards & Certs',
+                desc: 'Reliance, NASA & SAP Hackfest',
+                float: 'value-card-float-3',
+              },
+            ].map((card, i) => {
+              const CIcon = card.icon;
+              return (
+                <div
+                  key={i}
+                  className={`value-card glass rounded-2xl p-4 text-center sm:text-left ${card.float}`}
+                >
+                  <div className="flex items-center gap-3 mb-2 justify-center sm:justify-start">
+                    <div className="value-card-icon p-2 rounded-xl bg-primary/10 text-primary">
+                      <CIcon size={20} />
+                    </div>
+                    <span className="value-card-number text-2xl font-black tracking-tight">
+                      {card.number}
+                    </span>
+                  </div>
+                  <h3 className="text-sm font-bold text-foreground flex items-center gap-1.5 justify-center sm:justify-start">
+                    {card.label}
+                    <Sparkles size={12} className="text-primary/70" />
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-1">{card.desc}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* Right: Profile Photo */}
