@@ -1,5 +1,6 @@
-import { MapPin, Phone, Clock, Zap, Mail, Github, Linkedin, Terminal, Code2, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Clock, Zap, Mail, Github, Linkedin, Terminal, Code2, ExternalLink, Download, FileText } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import resumeAsset from '@/assets/saiprasath-resume.pdf.asset.json';
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'saiprasath161@gmail.com', sub: 'Drop me a line anytime' },
