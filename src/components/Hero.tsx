@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowDown, Github, Linkedin, Mail, Instagram, Download } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Instagram, Download, Briefcase, Code2, Trophy, Sparkles } from 'lucide-react';
 import profileAsset from '@/assets/profile-new.asset.json';
 import resumeAsset from '@/assets/saiprasath-resume.pdf.asset.json';
 
