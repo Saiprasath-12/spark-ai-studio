@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowDown, Github, Linkedin, Mail, Instagram, Download, Briefcase, Code2, Trophy, Sparkles } from 'lucide-react';
-import profileAsset from '@/assets/profile-new.asset.json';
-import resumeAsset from '@/assets/saiprasath-resume.pdf.asset.json';
-
-const profileImg = profileAsset.url;
+import profileImg from '@/assets/profile-new.png';
+import resumePdf from '@/assets/saiprasath-resume.pdf';
 
 const roles = [
   'Software Engineer',
