@@ -121,7 +121,7 @@ const Hero = ({ entered = true }: HeroProps) => {
               Get In Touch
             </a>
             <a
-              href={resumeAsset.url}
+              href={resumePdf}
               download="Saiprasath-M-Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
