@@ -1,22 +1,26 @@
-# Add Resume to Portfolio
+## Fixes
 
-## Plan
+### 1. Hero photo not visible on published site
 
-1. **Upload the resume PDF as a Lovable Asset** (CDN-hosted) via `lovable-assets create` — produces `src/assets/saiprasath-resume.pdf.asset.json`. The PDF stays on CDN, not in the repo.
+The current image reference uses a root-relative CDN path (`/__l5e/assets-v1/...`) from the `.asset.json`. On the published portfolio this path isn't resolving, so the `<img>` renders empty.
 
-2. **Hero section (`src/components/Hero.tsx`)** — Add a "Download Resume" button next to the existing "View My Work" and "Get In Touch" CTAs. Uses a `Download` lucide icon, styled as a secondary glass button matching the existing design. Opens the CDN URL with `download` attribute.
+Fix: re-import the portrait as a bundled asset so Vite fingerprints it into the build output.
 
-3. **Connect section (`src/components/Connect.tsx`)** — Add a prominent "Download Resume" action button above/near the socials block so recruiters can grab it from the contact area too. Includes a small "View Resume" link that opens the PDF in a new tab.
+- Save the portrait as a real file at `src/assets/profile-new.jpg` (regenerate from the previously uploaded portrait so it ships with the build).
+- In `src/components/Hero.tsx`, replace the `.asset.json` import with a direct `import profileImg from '@/assets/profile-new.jpg'`.
+- Remove the now-unused `src/assets/profile-new.asset.json` pointer.
 
-4. **Floating nav (optional, minimal)** — No change; keeps nav clean.
+This guarantees the image is served from the same origin as the deployed site.
 
-5. **SEO** — No metadata change needed; PDF is served from CDN with proper content-type.
+### 2. Remove rotating ring on value-proposition cards
 
-## Technical details
+In `src/index.css`, on `.value-card`:
 
-- File: `user-uploads://resume_2_2027.pdf` → uploaded via `lovable-assets create --file /mnt/user-uploads/resume_2_2027.pdf --filename Saiprasath-M-Resume.pdf`
-- Import: `import resumeAsset from '@/assets/saiprasath-resume.pdf.asset.json'`
-- Usage: `<a href={resumeAsset.url} download="Saiprasath-M-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>`
-- Filename shown to recruiter on download: `Saiprasath-M-Resume.pdf`
+- Delete the `::before` conic-gradient pseudo-element (or set it to `display:none`) and the `.value-card:hover::before { animation: ring-rotate ... }` rule.
+- Keep the lift, glow, and border-color hover styles intact.
+- Leave the icon and number animations unchanged.
 
-No new dependencies. Two files modified, one asset pointer created.
+No other components, content, or layout changes.  
+3.Add my resume it shows **NOT_FOUND**
+
+The `NOT_FOUND` error occurs when a requested resource could not be found. This might happen if the resource has been moved, deleted, or if there is a typo in the URL.
