@@ -362,24 +362,10 @@
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-.value-card::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: conic-gradient(from 0deg, hsl(187 92% 50% / 0), hsl(187 92% 50% / 0.4), hsl(217 92% 60% / 0.2), hsl(187 92% 50% / 0));
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: -1;
-}
 .value-card:hover {
   transform: translateY(-6px) scale(1.02);
   border-color: hsl(187 92% 50% / 0.4);
   box-shadow: 0 0 25px hsl(187 92% 50% / 0.12), 0 10px 40px hsl(187 92% 50% / 0.08);
-}
-.value-card:hover::before {
-  opacity: 1;
-  animation: ring-rotate 4s linear infinite;
 }
 .value-card-icon {
   transition: transform 0.4s ease, color 0.3s ease;
