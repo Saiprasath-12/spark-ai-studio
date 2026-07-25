@@ -109,7 +109,7 @@ const Connect = () => {
               </div>
               <div className="flex gap-2">
                 <a
-                  href={resumeAsset.url}
+                  href={resumePdf}
                   download="Saiprasath-M-Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -119,7 +119,7 @@ const Connect = () => {
                   Download
                 </a>
                 <a
-                  href={resumeAsset.url}
+                  href={resumePdf}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2.5 glass border border-primary/30 hover:border-primary text-foreground font-bold text-sm rounded-xl hover:scale-105 transition-all flex items-center justify-center gap-2"
